@@ -1,0 +1,220 @@
+﻿node.exe : 
+prisma:cli:bin Failed 
+to initialize the 
+command state: Error: 
+ENOENT: no such file 
+or directory, open 'C:
+\Users\Lenovo\AppData\
+Roaming\prisma-nodejs\
+Config\commands.json' 
++1433ms
+At line:1 char:1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (prisma:cli   
+ :bin ...s.json' +    
+1433ms:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+prisma:config:defineCo
+nfig [default]: '{\n  
+"loadedFromFile": 
+null\n}' +1097ms
+prisma:config:defineCo
+nfig [config.schema]: 
+'prisma/schema.prisma'
+ +1ms
+prisma:config:defineCo
+nfig 
+[config.datasource]: 
+'{\n  "url": 
+"file:./dev.db"\n}' 
++2ms
+prisma:config:defineCo
+nfig 
+[config.migrations]: 
+'{\n  "path": "prisma/
+migrations"\n}' +0ms
+prisma:config:loadConf
+igFromFile Config 
+file loaded in 
+168.99ms +2ms
+prisma:config:PrismaCo
+nfig Parsing 
+PrismaConfigInternal: 
+'{\n' +
+  '  
+"loadedFromFile": 
+null,\n' +
+  '  "schema": "prisma
+/schema.prisma",\n' +
+  '  "datasource": 
+{\n' +
+  '    "url": 
+"file:./dev.db"\n' +
+  '  },\n' +
+  '  "migrations": 
+{\n' +
+  '    "path": "prisma
+/migrations"\n' +
+  '  }\n' +
+  '}' +2ms
+prisma:config:PrismaCo
+nfig Short-circuit: 
+input is already a 
+PrismaConfigInternal 
+object +0ms
+Loaded Prisma config 
+from prisma.config.ts.
+
+prisma:engines 
+binaries to download 
+schema-engine +1603ms
+prisma:getSchema 
+Reading schema from 
+single file C:\Users\L
+enovo\.gemini\antigrav
+ity\scratch\greenloop2
+-app\prisma\schema.pri
+sma +178ms
+prisma:getSchema 
+Reading schema from 
+single file C:\Users\L
+enovo\.gemini\antigrav
+ity\scratch\greenloop2
+-app\prisma\schema.pri
+sma +0ms
+prisma:getConfig 
+Using getConfig Wasm 
++21ms
+prisma:cli:checkpoint 
+Error from tryToReadDa
+taFromSchema() while 
+processing the 
+schema. This is not a 
+fatal error. It will 
+continue without the 
+processed data. +21ms
+prisma:cli:checkpoint 
+{
+  "name": 
+"GetConfigError"
+} +1ms
+prisma:cli:checkpoint 
+runCheckpointClientChe
+ck(): Execution time 
+for getting info: 
+46.305000000000064 ms 
++0ms
+prisma:getSchema 
+Reading schema from 
+single file C:\Users\L
+enovo\.gemini\antigrav
+ity\scratch\greenloop2
+-app\prisma\schema.pri
+sma +10ms
+Prisma schema loaded 
+from 
+prisma\schema.prisma.
+prisma:getConfig 
+Using getConfig Wasm 
++9ms
+Error: 
+GetConfigError: 
+Prisma schema 
+validation - 
+(get-config wasm)
+Error code: P1012
+error: The datasource 
+property `url` is no 
+longer supported in 
+schema files. Move 
+connection URLs for 
+Migrate to 
+`prisma.config.ts` 
+and pass either 
+`adapter` for a 
+direct database 
+connection or 
+`accelerateUrl` for 
+Accelerate to the 
+`PrismaClient` 
+constructor. See https
+://pris.ly/d/config-da
+tasource and https://p
+ris.ly/d/prisma7-clien
+t-config
+  -->  
+prisma\schema.prisma:8
+   | 
+ 7 |   provider = 
+"sqlite"
+ 8 |   url      = 
+env("DATABASE_URL")
+   | 
+
+Validation Error 
+Count: 1
+[Context: getConfig]
+
+Prisma CLI Version : 
+7.4.2
+    at C:\Users\Lenovo
+\.gemini\antigravity\s
+cratch\greenloop2-app\
+node_modules\prisma\bu
+ild\index.js:203:1073
+    at e.with (C:\User
+s\Lenovo\.gemini\antig
+ravity\scratch\greenlo
+op2-app\node_modules\p
+risma\build\index.js:1
+63:41041)
+    at Cy (C:\Users\Le
+novo\.gemini\antigravi
+ty\scratch\greenloop2-
+app\node_modules\prism
+a\build\index.js:203:1
+043)
+    at oD (C:\Users\Le
+novo\.gemini\antigravi
+ty\scratch\greenloop2-
+app\node_modules\prism
+a\build\index.js:222:1
+318)
+    at Yn (C:\Users\Le
+novo\.gemini\antigravi
+ty\scratch\greenloop2-
+app\node_modules\prism
+a\build\index.js:222:1
+109)
+    at async e.parse (
+C:\Users\Lenovo\.gemin
+i\antigravity\scratch\
+greenloop2-app\node_mo
+dules\prisma\build\ind
+ex.js:576:285)
+    at async e.parse (
+C:\Users\Lenovo\.gemin
+i\antigravity\scratch\
+greenloop2-app\node_mo
+dules\prisma\build\ind
+ex.js:1060:2319)
+    at async qir (C:\U
+sers\Lenovo\.gemini\an
+tigravity\scratch\gree
+nloop2-app\node_module
+s\prisma\build\index.j
+s:4931:136)

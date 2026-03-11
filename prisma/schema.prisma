@@ -1,0 +1,102 @@
+generator client {
+  provider      = "prisma-client-js"
+  engineType    = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  password  String?
+  role      String   @default("USER") // "USER" or "ADMIN"
+  coins     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reports       Report[]
+  examResults   ExamResult[]
+  certificates  Certificate[]
+  pickupRequests PickupRequest[]
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  description String
+  location    String
+  imageUrl    String?
+  status      String   @default("PENDING") // PENDING, IN_PROGRESS, RESOLVED, REJECTED
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  date        DateTime
+  location    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Exam {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  passingScore Int      @default(70)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  questions   Question[]
+  results     ExamResult[]
+}
+
+model Question {
+  id      String @id @default(cuid())
+  examId  String
+  exam    Exam   @relation(fields: [examId], references: [id], onDelete: Cascade)
+  text    String
+  options String // JSON string array
+  answer  Int // Index of correct option
+}
+
+model ExamResult {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  examId    String
+  exam      Exam     @relation(fields: [examId], references: [id])
+  score     Int
+  passed    Boolean
+  createdAt DateTime @default(now())
+}
+
+model Certificate {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  title     String
+  issueDate DateTime @default(now())
+}
+
+model PickupRequest {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  wasteType   String
+  quantity    String
+  date        String
+  time        String
+  address     String
+  status      String   @default("PENDING") // PENDING, COMPLETED, CANCELLED
+  coinsRewarded Int    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
